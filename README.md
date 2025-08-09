@@ -1,6 +1,6 @@
 # boolean-variants
 
-A React [Higher-Order Component](https://legacy.reactjs.org/docs/higher-order-components.html) (HOC) that maps alternative boolean props to a single prop.
+A React [Higher-Order Component](https://legacy.reactjs.org/docs/higher-order-components.html) (HOC) that maps alternative boolean props to a component while maintaining the original component props.
 
 ```tsx
 // Before 🥱
@@ -22,7 +22,7 @@ npm install boolean-variants
 Assume you have `BaseButton` component that has a `variant` prop and a `size` prop. Used like:
 
 ```tsx
-  <BaseButton variant="primary" size="lg">
+<BaseButton variant="primary" size="lg">
 ```
 
 Use `withBooleanVariants` to pass an object of arrays of possible values and their corresponding prop keys.
