@@ -1,5 +1,4 @@
 import { createElement, type ComponentType, type FC } from 'react'
-import { PropConflictError, VariantCollisionError } from './errors'
 
 type VariantMap = Record<string, readonly string[]>
 
@@ -7,6 +6,28 @@ type VariantKeys<M extends VariantMap> = M[keyof M][number]
 
 type ExtractBooleanProps<M extends VariantMap> = {
   [K in VariantKeys<M>]?: boolean
+}
+
+class PropConflictError extends Error {
+  constructor(targetProp: string, props: Array<string | number | symbol>) {
+    super()
+    this.message = `Conflict error: You can not use both the explicit prop "${targetProp}" and boolean variant${
+      props.length === 1 ? '' : 's'
+    }: [${props.join(', ')}]`
+  }
+}
+
+class VariantCollisionError extends Error {
+  constructor(
+    variants: readonly string[],
+    targetProp: string,
+    props: Array<string | number | symbol>,
+  ) {
+    super()
+    this.message = `Collision error: Only one of [${variants.join(
+      ', ',
+    )}] can be used for "${targetProp}". Got: [${props.join(', ')}]`
+  }
 }
 
 export const withBooleanVariants =

@@ -1,6 +1,6 @@
 {
   "name": "boolean-variants",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A React HOC that maps boolean props to a single variant prop",
   "type": "module",
   "main": "dist/index.js",
