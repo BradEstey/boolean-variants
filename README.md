@@ -39,7 +39,7 @@ const Button = withBooleanVariants(BaseButton, {
 Now you can use boolean props to set the same prop values.
 
 ```tsx
-  <Button primary lg>
+<Button primary lg>
 ```
 
 You can even combine them.
