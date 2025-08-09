@@ -13,9 +13,11 @@ npm install boolean-variants
 Assume you have `BaseButton` component that has a `variant` prop and a `size` prop. Used like:
 
 ```tsx
-<BaseButton variant="primary" size="lg">...</BaseButton>
-<BaseButton variant="secondary" size="sm">...</BaseButton>
-<BaseButton variant="destructive" size="xs">...</BaseButton>
+<>
+  <BaseButton variant="primary" size="lg">...</BaseButton>
+  <BaseButton variant="secondary" size="sm">...</BaseButton>
+  <BaseButton variant="destructive" size="xs">...</BaseButton>
+</>
 ```
 
 Use `withBooleanVariants` to pass an object of arrays of possible values and their corresponding prop keys.
@@ -32,9 +34,11 @@ const Button = withBooleanVariants(BaseButton, {
 Now you can use boolean props to set the same prop values.
 
 ```tsx
-<Button primary lg>...</Button>
-<Button secondary sm>...</Button>
-<Button destructive xs>...</Button>
+<>
+  <Button primary lg>...</Button>
+  <Button secondary sm>...</Button>
+  <Button destructive xs>...</Button>
+</>
 ```
 
 You can even combine them.
@@ -46,6 +50,11 @@ You can even combine them.
 Attempting to use an explicit prop with a boolean prop variant or two boolean prop variants of the same group will throw a runtime error.
 
 ```tsx
-<Button variant="primary" secondary>...</Button> // ❌ Throws a prop conflict error.
-<Button primary secondary>...</Button> // ❌ Throws a variant collision error.
+<>
+  <Button variant="primary" secondary>...</Button>
+  // ❌ Throws a prop conflict error.
+
+  <Button primary secondary>...</Button>
+  // ❌ Throws a variant collision error.
+</>
 ```
