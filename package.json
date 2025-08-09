@@ -1,0 +1,24 @@
+{
+  "name": "boolean-variants",
+  "version": "1.0.0",
+  "description": "A React HOC that maps boolean props to a single variant prop",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "react",
+    "hoc",
+    "boolean",
+    "props"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/react": "^18.0.0"
+  }
+}
