@@ -2,6 +2,7 @@
   "name": "boolean-variants",
   "version": "1.0.4",
   "description": "A React HOC that maps boolean props to a single variant prop",
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
