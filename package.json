@@ -1,6 +1,6 @@
 {
   "name": "boolean-variants",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "A React HOC that maps boolean props to a single variant prop",
   "type": "module",
   "main": "dist/index.js",
@@ -21,6 +21,7 @@
   "devDependencies": {
     "@testing-library/react": "^16.3.0",
     "@types/react": "^18.0.0",
+    "@vitest/coverage-v8": "^3.2.4",
     "jsdom": "^26.1.0",
     "typescript": "^5.0.0",
     "vitest": "^3.2.4"
