@@ -15,10 +15,10 @@ const BaseButton = ({ variant, size, children }: ButtonProps) => (
   </button>
 )
 
-const Button = withBooleanVariants(BaseButton, {
+const Button = withBooleanVariants({
   variant: ['primary', 'secondary', 'outline', 'destructive'],
   size: ['xs', 'sm', 'lg', 'xl'],
-} as const)
+})(BaseButton)
 
 describe('withBooleanVariants', () => {
   it('converts the boolean prop into the expected prop value', () => {
@@ -51,6 +51,16 @@ describe('withBooleanVariants', () => {
     expect(() => {
       render(
         <Button variant="secondary" destructive>
+          Error
+        </Button>,
+      )
+    }).toThrowError()
+  })
+
+  it('throw an error if an explicit prop and multiple boolean props are used together', () => {
+    expect(() => {
+      render(
+        <Button variant="secondary" primary destructive>
           Error
         </Button>,
       )

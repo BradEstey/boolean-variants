@@ -30,10 +30,10 @@ Use `withBooleanVariants` to pass an object of arrays of possible values and the
 ```ts
 import { withBooleanVariants } from 'boolean-variants'
 
-const Button = withBooleanVariants(BaseButton, {
+const Button = withBooleanVariants({
   variant: ['primary', 'secondary', 'outline', 'destructive'],
   size: ['xs', 'sm', 'lg', 'xl'],
-} as const) // <--- `as const` is required in TypeScript!
+})(BaseButton)
 ```
 
 Now you can use boolean props to set the same prop values.

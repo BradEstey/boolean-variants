@@ -31,15 +31,13 @@ class VariantCollisionError extends Error {
 }
 
 export const withBooleanVariants =
-  <P extends object, M extends VariantMap>(
-    component: ComponentType<P>,
-    variantMap: M,
-  ): FC<P & ExtractBooleanProps<M>> =>
-  (props) => {
+  <T extends string, M extends Record<string, ReadonlyArray<T>>>(variantMap: M) =>
+  <P extends object>(component: ComponentType<P>): FC<P & ExtractBooleanProps<M>> => {
+  const WrappedComponent: FC<P & ExtractBooleanProps<M>> = (props) => {
     const newProps = { ...props } as Record<string, any>
     const variantEntries = Object.entries(variantMap)
 
-    variantEntries.map(([targetProp, variants]) => {
+    variantEntries.forEach(([targetProp, variants]) => {
       const booleanProps = (variants as readonly (keyof typeof props)[]).filter(
         (v) => props[v],
       )
@@ -63,3 +61,6 @@ export const withBooleanVariants =
 
     return createElement(component, newProps as P)
   }
+  WrappedComponent.displayName = `WithBooleanVariants(${component.displayName ?? component.name})`
+  return WrappedComponent
+}
